@@ -3,12 +3,10 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_huggingface import HuggingFaceEndpoint
 import os
-import dotenv
+import streamlit as st
 
-dotenv.load_dotenv()
-
-LLM_MODEL_REPO_ID = os.getenv("LLM_MODEL_REPO_ID")
-HF_TOKEN = os.getenv("HF_TOKEN")
+LLM_MODEL_REPO_ID = "mistralai/Mistral-7B-Instruct-v0.3"
+HF_TOKEN = st.secrets["HF_TOKEN"]
 
 # Initialize Retrieval Chain
 def get_retrieval_chain():
@@ -31,7 +29,7 @@ def get_retrieval_chain():
         model_kwargs={
             "max_length": 2048,
         },
-        huggingfacehub_api_token=os.getenv("HF_TOKEN"),
+        huggingfacehub_api_token=HF_TOKEN,
     )
 
     # Create RetrievalQA chain

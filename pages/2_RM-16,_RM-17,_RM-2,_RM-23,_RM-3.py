@@ -8,16 +8,13 @@ from huggingface_hub import InferenceClient
 from langchain_pipelines.generate_report_chain import generate_report
 import os 
 from src.utils import get_channel_id, get_available_tasks, get_tasks_by_project, get_project_description
-import dotenv
 from src.utils import store_report_in_chroma
 
-dotenv.load_dotenv()
-
 # VARIABLES, TOKENS AND KEYS
-HF_TOKEN = os.getenv("HF_TOKEN")
-LLM_MODEL_REPO_ID = os.getenv("LLM_MODEL_REPO_ID")
-SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
-WHISPER_API_URL = os.getenv("WHISPER_API_URL")
+HF_TOKEN = st.secrets["HF_TOKEN"]
+SLACK_BOT_TOKEN = st.secrets["SLACK_BOT_TOKEN"]
+WHISPER_API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v3-turbo"
+LLM_MODEL_REPO_ID = "mistralai/Mistral-7B-Instruct-v0.3"
 WHISPER_HEADERS = {"Authorization": f"Bearer {HF_TOKEN}"}
 
 # Fetch tasks specific to Proyecto 1

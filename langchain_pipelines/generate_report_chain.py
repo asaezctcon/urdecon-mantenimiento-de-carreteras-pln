@@ -7,12 +7,11 @@ from langchain.prompts import (
     ChatPromptTemplate,
 )
 import os
-import dotenv
-
-dotenv.load_dotenv()
+import streamlit as st
 
 # VARIABLES, TOKENS AND KEYS
-LLM_MODEL_REPO_ID = os.getenv("LLM_MODEL_REPO_ID")
+LLM_MODEL_REPO_ID = "mistralai/Mistral-7B-Instruct-v0.3"
+HF_TOKEN = st.secrets["HF_TOKEN"]
 
 report_structure = """
 - Fecha
@@ -68,7 +67,7 @@ def initialize_llm():
         model_kwargs={
             "max_length": 2048,
         },
-        huggingfacehub_api_token=os.getenv("HF_TOKEN"),
+        huggingfacehub_api_token=HF_TOKEN,
     )
     return llm
 
