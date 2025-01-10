@@ -1,4 +1,5 @@
 transformers
+sentence-transformers
 streamlit
 huggingface_hub
 langchain
@@ -6,4 +7,5 @@ tiktoken
 langchain_community
 langchain_huggingface
 langchain_core
-python-dotenv
+chromadb
+langchain_chroma
