@@ -11,6 +11,7 @@ st.subheader("Busca información sobre los proyectos en marcha")
 
 # User input for query
 query = st.text_input("Escribe tu consulta:")
+DEBUG = False
 
 if st.button("Enviar"):
     if query:
@@ -22,14 +23,15 @@ if st.button("Enviar"):
         st.write(result.get("result"))
 
         # Display source documents
-        st.write("### Documentos relacionados:")
-        source_docs = result.get("source_documents", [])
-        if source_docs:
-            for doc in source_docs:
-                st.write(f"**Informe:** {doc.page_content}")
-                st.write(f"**Metadatos:** {doc.metadata}")
-                st.write("---")
-        else:
-            st.write("No se encontraron documentos relacionados.")
+        if(DEBUG):
+            st.write("### Documentos relacionados:")
+            source_docs = result.get("source_documents", [])
+            if source_docs:
+                for doc in source_docs:
+                    st.write(f"**Informe:** {doc.page_content}")
+                    st.write(f"**Metadatos:** {doc.metadata}")
+                    st.write("---")
+            else:
+                st.write("No se encontraron documentos relacionados.")
     else:
         st.warning("Por favor, introduce una consulta.")
