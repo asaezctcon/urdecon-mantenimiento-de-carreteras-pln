@@ -6,8 +6,4 @@ tiktoken
 langchain_community
 langchain_huggingface
 langchain_core
-langgraph
 python-dotenv
-langchain_chroma
-langgraph>0.2.27
-pydeck
