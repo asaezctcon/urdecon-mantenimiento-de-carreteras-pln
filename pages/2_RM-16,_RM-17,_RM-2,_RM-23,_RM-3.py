@@ -50,10 +50,10 @@ if audio_value:
     # Step 1: Transcription with Whisper
     transcription_response = query_whisper(audio_value.read())
     if "text" in transcription_response:
-        #transcription = transcription_response["text"]
-        #st.subheader("Transcripción del audio:")
-        #st.write(transcription)
-        transcription = "Hola, soy Paco, estamos aquí en la carretera que va hacia el pueblo, en el kilómetro 45. Eh... nada, que estamos tapando unos baches que habían quedado bastante feos. Ya llevamos tres hechos y nos faltan como dos o tres más, dependiendo de cuánto nos rinda el material que tenemos. El tráfico está pasando lento porque estamos con las señales, pero no ha habido problemas. Parece que todo va bien por ahora. Por cierto, en el lado derecho de la carretera hay como una grieta que se ve un poco preocupante... no sé si luego habría que mirarlo mejor. Bueno, en un rato te cuento cómo vamos, a ver si terminamos pronto."
+        transcription = transcription_response["text"]
+        st.subheader("Transcripción del audio:")
+        st.write(transcription)
+        #transcription = "Hola, soy Paco, estamos aquí en la carretera que va hacia el pueblo, en el kilómetro 45. Eh... nada, que estamos tapando unos baches que habían quedado bastante feos. Ya llevamos tres hechos y nos faltan como dos o tres más, dependiendo de cuánto nos rinda el material que tenemos. El tráfico está pasando lento porque estamos con las señales, pero no ha habido problemas. Parece que todo va bien por ahora. Por cierto, en el lado derecho de la carretera hay como una grieta que se ve un poco preocupante... no sé si luego habría que mirarlo mejor. Bueno, en un rato te cuento cómo vamos, a ver si terminamos pronto."
         
         # Metadata
         metadata = {
