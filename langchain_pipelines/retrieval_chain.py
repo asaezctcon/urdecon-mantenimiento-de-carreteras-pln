@@ -21,7 +21,7 @@ def get_retrieval_chain():
     vectorstore = Chroma(persist_directory="./chroma_db", embedding_function=embeddings)
 
     # Set up retriever
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 5})  # Top 5 matches
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 3})  # Top 3 matches
 
     # Initialize Hugging Face model via HuggingFaceEndpoint
     llm = HuggingFaceEndpoint(
