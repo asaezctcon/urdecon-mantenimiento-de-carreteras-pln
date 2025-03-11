@@ -52,6 +52,8 @@ def retrieve_report(query):
     Returns:
         dict: The result containing the answer and source documents.
     """
+
+    query = query + ". Responde siempre en español."
     retrieval_chain = get_retrieval_chain()
     result = retrieval_chain(query)
     print("Answer:", result.get("result"))
